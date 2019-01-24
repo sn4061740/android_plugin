@@ -1,6 +1,7 @@
 package plugin.com.pluginpro;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.util.Log;
@@ -51,6 +52,14 @@ public class ProxyActivity extends Activity {
         if(aPluginInterface!=null){
             aPluginInterface.onStart();
         }
+    }
+
+    @Override
+    public void startActivity(Intent intent) {
+        String classForName=intent.getStringExtra("className");
+        Intent intent1=new Intent(this,ProxyActivity.class);
+        intent1.putExtra("className",classForName);
+        super.startActivity(intent1);
     }
 
     @Override

@@ -16,7 +16,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ProxyActivity" />
+        <!--launchMode 一定要是 standard-->
+        <activity android:name=".ProxyActivity" android:launchMode="standard"/>
     </application>
 
 </manifest>

@@ -2,6 +2,7 @@ package plugin.com.base.taopiaopiao;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -15,7 +16,7 @@ import android.view.WindowManager;
 import plugin.com.aplugin.APluginInterface;
 
 public class BaseActivity extends Activity implements APluginInterface {
-    Activity that;
+    protected Activity that;
 
     @SuppressLint("MissingSuperCall")
     @Override
@@ -80,6 +81,13 @@ public class BaseActivity extends Activity implements APluginInterface {
             return super.getWindowManager();
         }
         return that.getWindowManager();
+    }
+
+    @Override
+    public void startActivity(Intent intent) {
+        Intent newIntent=new Intent();
+        newIntent.putExtra("className",intent.getComponent().getClassName());
+        that.startActivity(newIntent);
     }
 
     @SuppressLint("MissingSuperCall")
