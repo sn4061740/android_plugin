@@ -1,0 +1,1 @@
+include ':app', ':aplugin', ':taopiaopiao',':permission'
